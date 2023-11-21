@@ -99,6 +99,11 @@ public class QLSanPham_View extends javax.swing.JFrame {
         });
 
         btnTimKiem.setText("Tìm Kiếm");
+        btnTimKiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTimKiemActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlTimKiemLayout = new javax.swing.GroupLayout(pnlTimKiem);
         pnlTimKiem.setLayout(pnlTimKiemLayout);
@@ -437,7 +442,6 @@ public class QLSanPham_View extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblGia)
                                     .addComponent(txtGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(47, 47, 47)
@@ -609,6 +613,10 @@ public class QLSanPham_View extends javax.swing.JFrame {
         tcv.setVisible(true);
         this.dispose(); 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemActionPerformed
+        this.search();
+    }//GEN-LAST:event_btnTimKiemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -874,6 +882,30 @@ public class QLSanPham_View extends javax.swing.JFrame {
             }
         }
         
+    }
+    
+    private void search() {
+        this.defaultTableModel.setRowCount(0);
+        try {
+            this.sanPham_Models = this.SanPhamSEVICE.SELECT_T1_search(this.txtTimKiem.getText());
+            for (SanPham_Model sp_Entity : this.sanPham_Models) {
+                this.defaultTableModel.addRow(new Object[]{
+                    sp_Entity.getMaSP(),
+                    sp_Entity.getTenSP(),
+                    sp_Entity.getAnh(),
+                    sp_Entity.getMoTa(),
+                    sp_Entity.getDonGia(),
+                    sp_Entity.getSoLuong(),
+                    sp_Entity.getLoai(),
+                    sp_Entity.getSize(),
+                    sp_Entity.getHang(),
+                    sp_Entity.getTrangThai()
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Lỗi truy vấn dữ liệu");
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

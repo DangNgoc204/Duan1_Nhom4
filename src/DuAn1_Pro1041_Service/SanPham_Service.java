@@ -136,4 +136,15 @@ public class SanPham_Service {
         }
     }
     
+    public List<SanPham_Model> SELECT_T1_search(String input) {
+        String SELECT_T1_search = "SELECT SANPHAM.MASP, SANPHAM.TENSP, ANH, MOTA, DONGIA, SOLUONG, LOAI, SIZE, HANG, TRANGTHAI FROM THONGTINSANPHAM \n"
+            + "            JOIN SANPHAM ON THONGTINSANPHAM.MASP = SANPHAM.MASP \n"
+            + "             WHERE THONGTINSANPHAM.MASP LIKE ?\n"
+            + "            OR LOAI LIKE ? \n"
+            + "            OR HANG LIKE  ?\n"
+            + "            OR SIZE LIKE ? \n"
+            + "            OR SANPHAM.TENSP LIKE ?\n"
+            + "            AND TRANGTHAI = ? ";
+        return this.selectbySQL(SELECT_T1_search, "%" + input + "%", "%" + input + "%", "%" + input + "%", "%" + input + "%", "%" + input + "%", "Hoạt động");
+    }
 }
