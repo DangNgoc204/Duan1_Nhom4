@@ -16,24 +16,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class QLBanHang_View extends javax.swing.JFrame {
 
-    DefaultTableModel tableModel = new DefaultTableModel();
-    SanPham_Service service = new SanPham_Service();
-    private List<SanPham_Model> lists = new ArrayList<>();
+    DefaultTableModel defaultTableModel = new DefaultTableModel();
+    SanPham_Service SanPhamSEVICE = new SanPham_Service();
+    private List<SanPham_Model> sanPham_Models;
 
     public QLBanHang_View() {
         initComponents();
-        lists = service.getall();
-        tableModel = (DefaultTableModel) tblSanPham.getModel();
-        showData();
-    }
-    
-    private void showData(){
-        tableModel.setRowCount(0);
-        for (SanPham_Model sp : lists) {
-            tableModel.addRow(new Object[]{
-                sp.getMaSP(),sp.getTenSP(),sp.getAnh(),sp.getMoTa(),sp.getDonGia(),sp.getSoLuong(),sp.getLoai(),sp.getSize(),sp.getHang(),sp.getTrangThai()
-            });
-        }
+        setLocationRelativeTo(null);
+        filltable();
     }
 
     /**
@@ -62,6 +52,10 @@ public class QLBanHang_View extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblGioHang = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -84,6 +78,12 @@ public class QLBanHang_View extends javax.swing.JFrame {
         jLabel6.setText("Tiền Khách Đưa");
 
         jLabel7.setText("Tiền Thừa");
+
+        jTextField1.setEditable(false);
+
+        jTextField2.setEditable(false);
+
+        jTextField3.setEditable(false);
 
         jButton2.setText("Thanh Toán");
 
@@ -151,15 +151,53 @@ public class QLBanHang_View extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        tblGioHang.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Mã SP", "Tên SP", "Đơn giá", "Số lượng"
+            }
+        ));
+        tblGioHang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblGioHangMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblGioHang);
+
+        jButton1.setText("jButton1");
+
+        jButton3.setText("jButton3");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 196, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jButton1)
+                .addGap(57, 57, 57)
+                .addComponent(jButton3)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -238,8 +276,10 @@ public class QLBanHang_View extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8)
-                                    .addComponent(jLabel9))
-                                .addGap(0, 650, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(458, 458, 458)
+                                        .addComponent(jLabel9)))
+                                .addGap(0, 192, Short.MAX_VALUE))
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,13 +307,17 @@ public class QLBanHang_View extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(20, 20, 20)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tblGioHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblGioHangMouseClicked
+
+    }//GEN-LAST:event_tblGioHangMouseClicked
 
     /**
      * @param args the command line arguments
@@ -310,8 +354,25 @@ public class QLBanHang_View extends javax.swing.JFrame {
         });
     }
 
+    public void filltable() {
+        List<SanPham_Model> list = SanPhamSEVICE.getall();
+        defaultTableModel = (DefaultTableModel) tblSanPham.getModel();
+        defaultTableModel.setRowCount(0);
+        for (SanPham_Model sanPham : list) {
+            defaultTableModel.addRow(new Object[]{
+                sanPham.getMaSP(), sanPham.getTenSP(), sanPham.getAnh(), sanPham.getMoTa(), sanPham.getDonGia(),
+                sanPham.getSoLuong(), sanPham.getLoai(), sanPham.getSize(), sanPham.getHang(), sanPham.getTrangThai()
+            });
+
+        }
+    }
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -327,12 +388,14 @@ public class QLBanHang_View extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTable tblGioHang;
     private javax.swing.JTable tblSanPham;
     // End of variables declaration//GEN-END:variables
 }
