@@ -103,6 +103,7 @@ public class TrangChu_View extends javax.swing.JFrame {
         });
 
         btnKetThuc.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        btnKetThuc.setIcon(new javax.swing.ImageIcon("C:\\Users\\admin\\Desktop\\Duan1_Nhom4\\src\\ICON\\Exit.png")); // NOI18N
         btnKetThuc.setText("Kết Thúc");
         btnKetThuc.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnKetThuc.addActionListener(new java.awt.event.ActionListener() {

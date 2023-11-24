@@ -45,25 +45,28 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblHang" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
-                                          <Component id="lblLoai" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblTrangThai" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblLoai" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblHang" min="-2" pref="64" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="cboLoai" min="-2" pref="276" max="-2" attributes="0"/>
                                                   <Component id="cboHang" alignment="0" min="-2" pref="276" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="btnThemLoai" pref="33" max="32767" attributes="0"/>
-                                                  <Component id="btnThemHang" max="32767" attributes="0"/>
+                                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="btnThemLoai" min="-2" pref="33" max="-2" attributes="0"/>
+                                                  <Component id="btnThemHang" min="-2" pref="33" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Component id="cboTrangThai" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="lblTrangThai" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="cboTrangThai" min="-2" pref="355" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -93,15 +96,14 @@
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtMoTa" max="32767" attributes="0"/>
                                   <Component id="txtMaSP" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtSoLuong" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="cboSize" min="-2" pref="305" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="cboSize" min="-2" pref="262" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="btnThemSize" min="-2" pref="36" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="txtMoTa" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -124,7 +126,20 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="pnlTimKiem" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="9" max="32767" attributes="0"/>
+                              <Component id="lblAnh" min="-2" pref="245" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="txtTenSP" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -136,38 +151,14 @@
                                   <Component id="lblGia" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtGia" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="47" pref="47" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="cboLoai" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnThemHang" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblMoTa" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="cboTrangThai" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblTrangThai" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblHang" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="cboHang" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnThemLoai" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                      <Component id="lblLoai" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblSize" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="cboSize" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnThemSize" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                      <Component id="txtMoTa" min="-2" pref="76" max="-2" attributes="0"/>
-                                  </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cboHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnThemLoai" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblSize" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cboSize" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnThemSize" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -177,22 +168,33 @@
                                   <Component id="txtSoLuong" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="txtMaSP" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtMaSP" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="txtTenSP" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="cboLoai" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnThemHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblMoTa" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="cboTrangThai" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblTrangThai" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="lblLoai" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="lblAnh" min="-2" pref="245" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="txtMoTa" min="-2" pref="76" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
@@ -227,7 +229,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="txtTimKiem" min="-2" pref="919" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btnTimKiem" max="32767" attributes="0"/>
+                  <Component id="btnTimKiem" pref="132" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -412,7 +414,7 @@
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jScrollPane3" pref="1041" max="32767" attributes="0"/>
+                  <Component id="jScrollPane3" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
