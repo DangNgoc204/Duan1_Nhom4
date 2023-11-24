@@ -8,6 +8,7 @@ import DuAn1_Pro1041_Model.SanPham_Model;
 import DuAn1_Pro1041_Service.SanPham_Service;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,6 +25,29 @@ public class QLBanHang_View extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         filltable();
+    }
+     private void search() {
+        this.defaultTableModel.setRowCount(0);
+        try {
+            this.sanPham_Models = this.SanPhamSEVICE.SELECT_T1_search(this.txtTimKiemsp.getText());
+            for (SanPham_Model sp_Entity : this.sanPham_Models) {
+                this.defaultTableModel.addRow(new Object[]{
+                    sp_Entity.getMaSP(),
+                    sp_Entity.getTenSP(),
+                    sp_Entity.getAnh(),
+                    sp_Entity.getMoTa(),
+                    sp_Entity.getDonGia(),
+                    sp_Entity.getSoLuong(),
+                    sp_Entity.getLoai(),
+                    sp_Entity.getSize(),
+                    sp_Entity.getHang(),
+                    sp_Entity.getTrangThai()
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Lỗi truy vấn dữ liệu");
+        }
     }
 
     /**
@@ -62,6 +86,8 @@ public class QLBanHang_View extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSanPham = new javax.swing.JTable();
+        txtTimKiemsp = new javax.swing.JTextField();
+        BtnTimKiemsp = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -180,7 +206,7 @@ public class QLBanHang_View extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -259,6 +285,19 @@ public class QLBanHang_View extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        txtTimKiemsp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTimKiemspActionPerformed(evt);
+            }
+        });
+
+        BtnTimKiemsp.setText("Tìm Kiếm");
+        BtnTimKiemsp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnTimKiemspActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -273,14 +312,18 @@ public class QLBanHang_View extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(458, 458, 458)
-                                        .addComponent(jLabel9)))
-                                .addGap(0, 192, Short.MAX_VALUE))
-                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(jLabel9))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtTimKiemsp, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(60, 60, 60)
+                                        .addComponent(BtnTimKiemsp)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -293,11 +336,15 @@ public class QLBanHang_View extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtTimKiemsp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
+                        .addGap(5, 5, 5)
+                        .addComponent(BtnTimKiemsp)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8)
@@ -318,6 +365,15 @@ public class QLBanHang_View extends javax.swing.JFrame {
     private void tblGioHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblGioHangMouseClicked
 
     }//GEN-LAST:event_tblGioHangMouseClicked
+
+    private void txtTimKiemspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimKiemspActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTimKiemspActionPerformed
+
+    private void BtnTimKiemspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTimKiemspActionPerformed
+        // TODO add your handling code here:
+        this.search();
+    }//GEN-LAST:event_BtnTimKiemspActionPerformed
 
     /**
      * @param args the command line arguments
@@ -370,6 +426,7 @@ public class QLBanHang_View extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnTimKiemsp;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -397,5 +454,6 @@ public class QLBanHang_View extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTable tblGioHang;
     private javax.swing.JTable tblSanPham;
+    private javax.swing.JTextField txtTimKiemsp;
     // End of variables declaration//GEN-END:variables
 }
