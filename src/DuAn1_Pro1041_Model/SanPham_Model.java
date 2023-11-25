@@ -14,13 +14,22 @@ public class SanPham_Model {
     private String anh;
     private String moTa;
     private Float donGia;
-    private Integer soLuong;
+    private int soLuong;
     private String loai;
     private String size;
     private String hang;
     private String trangThai;
+    private float thanhTien;
 
     public SanPham_Model() {
+    }
+
+    public SanPham_Model(String maSP, String tenSP, Float donGia, int soLuong, float thanhTien) {
+        this.maSP = maSP;
+        this.tenSP = tenSP;
+        this.donGia = donGia;
+        this.soLuong = soLuong;
+        this.thanhTien = thanhTien;
     }
 
     public SanPham_Model(String maSP, String tenSP, String anh, String moTa, Float donGia, Integer soLuong, String loai, String size, String hang, String trangThai) {
@@ -34,10 +43,6 @@ public class SanPham_Model {
         this.size = size;
         this.hang = hang;
         this.trangThai = trangThai;
-    }
-
-    public SanPham_Model(String maSP) {
-        this.maSP = maSP;
     }
 
     public String getMaSP() {
@@ -80,11 +85,11 @@ public class SanPham_Model {
         this.donGia = donGia;
     }
 
-    public Integer getSoLuong() {
+    public int getSoLuong() {
         return soLuong;
     }
 
-    public void setSoLuong(Integer soLuong) {
+    public void setSoLuong(int soLuong) {
         this.soLuong = soLuong;
     }
 
@@ -119,4 +124,13 @@ public class SanPham_Model {
     public void setTrangThai(String trangThai) {
         this.trangThai = trangThai;
     }
+
+    public float getThanhTien() {
+        return thanhTien;
+    }
+
+    public void setThanhTien(float thanhTien) {
+        this.thanhTien = thanhTien;
+    }
+    
 }
