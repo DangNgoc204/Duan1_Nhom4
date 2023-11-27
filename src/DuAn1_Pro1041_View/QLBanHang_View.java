@@ -245,7 +245,6 @@ public class QLBanHang_View extends javax.swing.JFrame {
                 "Ma SP", "Ten SP", "Anh", "MoTa", "DonGia", "SoLuong", "Loai", "Size", "Hang", "TrangThai"
             }
         ));
-        tblSanPham.setColumnSelectionAllowed(true);
         tblSanPham.setUpdateSelectionOnSort(false);
         tblSanPham.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
